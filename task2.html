@@ -1,49 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Task 2</title>
-    <style>
-        form {
-            background-color: rgb(36, 115, 206);
-            float: left;
-            width: 25%;
-            padding: 20px; 
-        }
-        
-        input {
-            width: calc(100% - 16px); 
-            padding: 8px;
-            margin-bottom: 16px;
-            margin-top: 10px; 
-            display: block;
-        }
-        
-        button {
-            width: calc(100% - 16px); 
-            background-color: #cf1616;
-            color: #fff;
-            padding: 10px 20px;
-            margin-bottom: 10px; 
-        }
-    </style>
-</head>
-<body>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buttons</title>
+<style>
+    body {
+      padding: 40px;
+    }
+.btn-basic {
+    background-color:lightgray ;
+    color: black;
+}
 
 
-<form>
+.btn-primary {
+    background-color:rgb(41, 29, 212) ;
+    color: black;
+}
 
 
-    <input type="TEXT" placeholder="NAME">
-    <input type="TEXT" placeholder="USERNAME">
-    <input type="PASSWORD" placeholder="PASSWORD">
-    <input type="TEL" placeholder="NUMBER">
-    <input type="EMAIL" placeholder="EMAIL">
-    <button type="SUBMIT">Register</button>
+.btn-success {
+    background-color:rgb(61, 211, 15) ;
+    color: white;
+}
 
 
-</form>
-
-
+.btn-warning {
+    background-color:orange ;
+    color: white;
+}
+.btn-info {
+    background-color: rgb(16, 122, 227) ;
+    color: white;
+}
+.btn-default {
+    background-color:lightgray ;
+    color: black;
+}
+.btn-danger {
+    background-color:red ;
+    color: white;
+}
+.btn-link {
+    background-color:white(122, 216, 221) ;
+    color: black;
+}
+</style>
+<button type="button" class="btn btn-basic">Basic</button>
+<button type="button" class="btn btn-default">default</button>
+<button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+   
+    
+    <button type="button" class="btn btn-link">Link</button>
 </body>
 </html>

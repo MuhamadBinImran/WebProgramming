@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+
 <head>
-    <title>Postcard from Amalfi Coast</title>
-    <style>
-        body {
-            background-image: url('https://source.unsplash.com/random/900x500/?nature'); 
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        h1 {
-            position: absolute;
-            bottom: 30px;
-            left: -300px;
-            font-family: 'Times New Roman', Times, serif;
-            text-decoration-color: black;
-            background-color: rgb(244, 244, 231);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            animation: slide 5s forwards;
-        }
-        @keyframes slide {
-            0% { left: -300px; }
-            100% { left: 300px; }
-        }
-    </style>
+  <style>
+    .red-text {
+      color: red;
+    }
+  </style>
 </head>
+
+
 <body>
-    <h1>Hello from Amalfi Coast!</h1>
+  <script>
+    function getDaysInMonth() {
+      var monthName = prompt("Enter the name of the month (e.g., Jan, Feb, Mar):");
+      var lowerMonthName = monthName.toLowerCase();
+
+
+      var daysInMonth = {
+        jan: 31,
+        feb: 28,
+        mar: 31,
+        apr: 30,
+        may: 31,
+        jun: 30,
+        jul: 31,
+        aug: 31,
+        sep: 30,
+        oct: 31,
+        nov: 30,
+        dec: 31
+      };
+
+
+      if (daysInMonth.hasOwnProperty(lowerMonthName)) {
+        document.write("Total days in " + monthName + ": <span class='red-text'>" + daysInMonth[lowerMonthName] + "</span> days");
+      } else {
+        document.write("Invalid month name. Please enter a valid month name.");
+      }
+    }
+
+
+    getDaysInMonth();
+  </script>
 </body>
+
+
 </html>
