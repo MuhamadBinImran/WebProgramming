@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup and Signin Forms</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(images.jpg) ;
+            background-size: cover;
+            background-position: center;
+            background-color: #f2f2f2;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .form-container {
+            width: 500px;
+            margin: 100px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+
+        .form-container label {
+            font-weight: bold;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+
+        .form-container span.error {
+            font-size: 12px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="color: rgb(236, 237, 238);"> Signup Form</h2>
+    <div class="form-container">
+        <form id="signupForm">
+            <div>
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" required><br>
+                <span id="usernameError" class="error"></span>
+            </div>
+            <div>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" required><br>
+                <span id="passwordError" class="error"></span>
+            </div>
+            <div>
+                <label for="confirmPassword">Confirm Password:</label><br>
+                <input type="password" id="confirmPassword" required><br>
+                <span id="confirmPasswordError" class="error"></span>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <h2 style="color: rgb(252, 253, 253);">Signin Form</h2>
+    <div class="form-container">
+        <form id="signinForm">
+            <div>
+                <label for="signinUsername">Username:</label><br>
+                <input type="text" id="signinUsername" required><br>
+                <span id="signinUsernameError" class="error"></span>
+            </div>
+            <div>
+                <label for="signinPassword">Password:</label><br>
+                <input type="password" id="signinPassword" required><br>
+                <span id="signinPasswordError" class="error"></span>
+            </div>
+            <button type="submit">Sign In</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Validation code for signup form
+
+            // Clear previous error messages
+            document.querySelectorAll('#signupForm span.error').forEach(function(element) {
+                element.textContent = '';
+            });
+
+            // Retrieve input values
+            var username = document.getElementById('username').value.trim();
+            var password = document.getElementById('password').value.trim();
+            var confirmPassword = document.getElementById('confirmPassword').value.trim();
+
+            var isValid = true;
+
+            // Validate username
+            if (username.length < 6) {
+                document.getElementById('usernameError').textContent = 'Username must be at least 6 characters long.';
+                isValid = false;
+            }
+
+            // Validate password
+            if (password.length < 8) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 8 characters long.';
+                isValid = false;
+            }
+
+            // Validate confirm password
+            if (password !== confirmPassword) {
+                document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Submit the form if all validations pass
+                alert('Signup successful!');
+                document.getElementById('signupForm').reset(); // Clear the form
+            }
+        });
+
+        document.getElementById('signinForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Validation code for signin form
+
+            // Clear previous error messages
+            document.querySelectorAll('#signinForm span.error').forEach(function(element) {
+                element.textContent = '';
+            });
+
+            // Retrieve input values
+            var username = document.getElementById('signinUsername').value.trim();
+            var password = document.getElementById('signinPassword').value.trim();
+
+            var isValid = true;
+
+            // Validate username
+            if (username.length < 6) {
+                document.getElementById('signinUsernameError').textContent = 'Invalid username.';
+                isValid = false;
+            }
+
+            // Validate password
+            if (password.length < 8) {
+                document.getElementById('signinPasswordError').textContent = 'Invalid password.';
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Submit the form if all validations pass
+                alert('Signin successful!');
+                document.getElementById('signinForm').reset(); // Clear the form
+            }
+        });
+    </script>
+</body>
+</html>
