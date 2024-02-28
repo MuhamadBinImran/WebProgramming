@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Bin Imran - Web Developer</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        header {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #212529;
+            padding: 1em;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 1em;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffc107;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4em 1em;
+            background-color: #343a40;
+            color: #ffffff;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            color: #ffc107;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+        }
+
+        .project-section {
+            background-color: #ffffff;
+            padding: 2em 1em;
+            text-align: center;
+        }
+
+        .project-section h2 {
+            color: #343a40;
+        }
+
+        .project-card {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin: 1em;
+            padding: 1em;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: #343a40;
+        }
+
+        .project-card p {
+            color: #666;
+        }
+
+        .skills-section {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 2em 1em;
+            text-align: center;
+        }
+
+        .skills-section h2 {
+            margin-bottom: 1em;
+            color: #ffc107;
+        }
+
+        .skills-list {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .skills-list li {
+            margin: 0 1em;
+            padding: 0.5em 1em;
+            background-color: #ffc107;
+            color: #343a40;
+            border-radius: 4px;
+        }
+
+        .contact-section {
+            background-color: #ffffff;
+            padding: 2em 1em;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: #343a40;
+        }
+
+        .contact-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        .contact-form button {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #ffc107;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Muhammad Bin Imran</h1>
+        <p>Web Developer | Lahore, Pakistan | FAST University</p>
+    </header>
+
+    <nav>
+        <a href="#hero">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div id="hero" class="hero">
+        <h1>Welcome to My Web Development Journey!</h1>
+        <p>I'm passionate about creating innovative web solutions that make a difference.</p>
+    </div>
+
+    <div id="projects" class="project-section">
+        <h2>Projects</h2>
+        <div class="project-card">
+            <h3>Portfolio Website</h3>
+            <p>Designed and developed a personal portfolio website to showcase my skills and projects. Implemented a responsive design for a seamless viewing experience on various devices.</p>
+        </div>
+        <div class="project-card">
+            <h3>Task Management App</h3>
+            <p>Created a task management application with features for adding, editing, and deleting tasks. Utilized React.js for the frontend and Firebase for real-time data storage.</p>
+        </div>
+        <div class="project-card">
+            <h3>E-commerce Platform</h3>
+            <p>Developed a full-stack e-commerce platform with user authentication, product listings, and shopping cart functionality. Used MERN stack (MongoDB, Express.js, React.js, Node.js).</p>
+        </div>
+    </div>
+
+    <div id="skills" class="skills-section">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>React.js</li>
+            <li>Node.js</li>
+            <li>Express.js</li>
+        </ul>
+    </div>
+
+    <div id="contact" class="contact-section">
+        <h2>Contact</h2>
+        <div class="contact-form">
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </div>
+    </div>
+</body>
+</html>
