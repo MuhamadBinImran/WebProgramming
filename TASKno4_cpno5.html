@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Remove Table Row</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 5px;
+    }
+    .remove-btn {
+      padding: 2px 5px;
+      cursor: pointer;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John Doe</td>
+        <td>30</td>
+        <td><button class="remove-btn">Remove</button></td>
+      </tr>
+      <tr>
+        <td>Jane Smith</td>
+        <td>25</td>
+        <td><button class="remove-btn">Remove</button></td>
+      </tr>
+      <tr>
+        <td>Mike Brown</td>
+        <td>42</td>
+        <td><button class="remove-btn">Remove</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+$(document).ready(function() {
+  $(".remove-btn").click(function() {
+    $(this).closest("tr").remove();
+  });
+});
+</script>
+</body>
+</html>

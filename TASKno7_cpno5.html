@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Count 'p' elements using jQuery. </title>
+</head>
+<body>
+<div id="selected">
+  <p>Red</p>
+  <p>White</p>
+  <p>Green</p>
+  <p>Black</p>
+  <p>Blue</p>
+  <p>Orange</p>
+</div>
+<p id="count"></p>
+
+<script>
+$(document).ready(function() {
+  var pCount = $("#selected").find("p").length;
+  $("#count").text("Number of 'p' elements: " + pCount);
+});
+</script>
+
+</body>
+</html>

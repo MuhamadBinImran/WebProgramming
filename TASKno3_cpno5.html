@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IMAGE UPLOAD/HIDE/SHOW</title>
+  <style>
+    #imageUpload {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    #uploadedImage {
+      display: none;
+      width: 500px;
+      height: auto;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+  <input type="file" id="imageUpload" accept="image/*">
+  <button id="toggleButton">Show</button>
+  <img id="uploadedImage" src="" alt="Uploaded Image">
+  <script>
+$(document).ready(function() {
+  var isImageShown = false;
+
+  $("#imageUpload").change(function(e) {
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      $("#uploadedImage").attr('src', event.target.result);
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  });
+
+  $("#toggleButton").click(function() {
+    isImageShown = !isImageShown;
+
+    $("#uploadedImage").toggle();
+    $(this).text(isImageShown ? "Hide Image" : "Show Image");
+  });
+});
+</script>
+</body>
+</html>
