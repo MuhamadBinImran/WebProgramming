@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clock</title>
+  <style>
+    :root {
+      /* Colors */
+      --primary-color: #c9e511;
+      --secondary-color: #b1e43a;
+      --accent-color: #00adb5;
+      --text-color: #eeeeee;
+      --animation-duration: 1s; /* Animation duration */
+
+      /* Border radius */
+      --border-radius: 0.5rem;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      background-color: var(--primary-color);
+      margin: 0;
+      height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--accent-color);
+    }
+
+    p {
+      color: var(--text-color);
+      font-family: "Poppins", sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      color: var(--accent-color);
+      font-family: "Roboto", sans-serif;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+      border-radius: var(--border-radius);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #clock {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      animation: scaleAndColor var(--animation-duration) infinite alternate; /* Animation */
+    }
+
+    #date {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      font-family: "Roboto", sans-serif;
+      font-weight: 900;
+    }
+
+    .colon {
+      font-size: 2rem;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      padding: 0;
+      margin: 0;
+      font-family: "Poppins", monospace;
+    }
+
+    #hours,
+    #minutes,
+    #seconds {
+      text-align: center;
+      font-family: "Poppins", monospace;
+      font-size: 4rem; /* Increased font size */
+      color: var(--accent-color); /* Color for time */
+    }
+
+    #date {
+      color: var(--accent-color); /* Color for date */
+    }
+
+    /* Animation keyframes */
+    @keyframes scaleAndColor {
+      from {
+        color: var(--accent-color);
+        transform: scale(1);
+      }
+      to {
+        color: #ff5722; /* New color */
+        transform: scale(1.1); /* Increased size */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="clock">
+      <div id="date">Sunday 17 March 2023</div>
+      <ul>
+        <li id="hours">12</li>
+        <li class="colon">:</li>
+        <li id="minutes">34</li>
+        <li class="colon">:</li>
+        <li id="seconds">34</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      function updateClock() {
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+        var month = currentTime.getMonth() + 1; // Adding 1 because getMonth() returns zero-based index
+        var day = currentTime.getDate();
+        var year = currentTime.getFullYear();
+
+        // Add leading zeros to minutes, seconds, month, and day
+        minutes = (minutes < 10 ? "0" : "") + minutes;
+        seconds = (seconds < 10 ? "0" : "") + seconds;
+        month = (month < 10 ? "0" : "") + month;
+        day = (day < 10 ? "0" : "") + day;
+
+        // Determine AM or PM
+        var period = hours < 12 ? "AM" : "PM";
+
+        // Convert to 12-hour format
+        hours = hours > 12 ? hours - 12 : hours;
+        hours = hours === 0 ? 12 : hours;
+
+        // Get the day of the week
+        var daysOfWeek = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ];
+
+        var monthsOfYear = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+
+        var dayOfWeek = daysOfWeek[currentTime.getDay()];
+        var dayOfMonth = currentTime.getDate();
+        var month = monthsOfYear[currentTime.getMonth()];
+        var year = currentTime.getFullYear();
+
+        // Display the time and date
+        var clockDiv = $("#clock");
+        $("#hours").text(hours);
+        $("#minutes").text(minutes);
+        $("#seconds").text(`${seconds} ${period}`);
+        $("#date").text(dayOfWeek + ", " + dayOfMonth + " " + month + " " + year);
+      }
+
+      // Update the clock every second
+      setInterval(updateClock, 1000);
+    });
+  </script>
+</body>
+</html>
