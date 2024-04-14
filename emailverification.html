@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification - Housing Society Management System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('email.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .verification-container {
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            color:#ced71b;
+            margin-bottom: 20px;
+            font-size: 36px; /* Larger font size for heading */
+            font-weight: bold; /* Bold font for heading */
+        }
+
+        input[type="text"]{
+            width: 100%;
+            padding: 12px; /* Increase padding for inputs */
+            margin-bottom: 20px; /* Increase bottom margin for spacing */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px; /* Larger font size for inputs */
+        }
+        input[type="submit"] {
+            width: 108%; /* Adjusted width to fit within the container */
+            padding: 12px; /* Increase padding for inputs */
+            margin-bottom: 20px; /* Increase bottom margin for spacing */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #ced71b;
+            font-size: 16px; /* Larger font size for inputs */
+            cursor: pointer;
+        }
+
+        #errorMessage {
+            font-size: 16px; /* Adjusted font size for error message */
+            color: red;
+            display: none; /* Initially hide the error message */
+        }
+
+        #verificationMessage {
+            font-size: 16px; /* Adjusted font size for verification message */
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px; /* Larger font size for link */
+        }
+    </style>
+</head>
+<body>
+    <div class="verification-container">
+        <h2>Email Verification</h2>
+        <form id="verificationForm" action="/verify" method="post">
+            <input type="text" name="verificationCode" placeholder="Enter Verification Code" required>
+            <input type="submit" value="Verify">
+            <p id="errorMessage">Wrong code. Please try again.</p>
+        </form>
+        <p id="verificationMessage"></p> <!-- This paragraph will display the verification result -->
+    </div>
+    <script>
+        document.getElementById('verificationForm').addEventListener('submit', async function(event) {
+            // Prevent the form from submitting normally
+            event.preventDefault();
+    
+            // Get the verification code entered by the user
+            const verificationCode = document.getElementsByName('verificationCode')[0].value;
+    
+            try {
+                // Make a POST request to the server endpoint (assuming it's running on localhost:8080)
+                const response = await fetch('http://localhost:8080/http://localhost:3000/verify', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ verificationCode: verificationCode })
+                });
+    
+                // Parse the response as JSON
+                const data = await response.json();
+    
+                // Handle the response data as needed (e.g., display a message to the user)
+                console.log(data); // Log the response data to the console
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to verify. Please try again later.');
+            }
+        });
+    </script>
+    
+</body>
+</html>
